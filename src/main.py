@@ -12,6 +12,7 @@ def run():
     started_at = datetime.now(timezone.utc).isoformat()
 
     urls = discover_book_urls()
+    urls.append("https://books.toscrape.com/catalogue/this-page-does-not-exist_9999/index.html")
 
     seen = set()
     valid_records = []
