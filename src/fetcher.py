@@ -21,6 +21,7 @@ def fetch(url: str, cache_path: str, retries: int = 1) -> str:
         time.sleep(DELAY)
         try:
             resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT)
+            resp.encoding = resp.apparent_encoding
         except requests.Timeout:
             if attempt < retries:
                 print(f"TIMEOUT    {url}  (retrying)")
